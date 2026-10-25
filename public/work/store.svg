@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="800" height="600" fill="#dcefe4"/>
+  <path d="M58 80c228-4 456-3 684 1 4 148 3 298-1 444-228 4-456 3-683-1-3-148-3-296 0-444z" fill="#fff" stroke="#18211d" stroke-width="3"/>
+  <path d="M59 124c228 2 456 1 682-1" stroke="#18211d" stroke-width="2.5"/>
+  <circle cx="88" cy="102" r="7" fill="#f2a08b" stroke="#18211d" stroke-width="2"/>
+  <circle cx="112" cy="102" r="7" fill="#f2c94c" stroke="#18211d" stroke-width="2"/>
+  <circle cx="136" cy="102" r="7" fill="#9fd3b4" stroke="#18211d" stroke-width="2"/>
+  <!-- nav -->
+  <path d="M96 168c40 0 80 0 110 1" stroke="#18211d" stroke-width="10"/>
+  <path d="M440 168c30 0 50 0 60 1M530 168c30 0 50 0 60 1" stroke="#aab1bf" stroke-width="6"/>
+  <path d="M640 156c12 0 24 0 34 2l-4 22c-9 1-18 1-26 0z" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M648 156c0-10 18-10 18 0" stroke="#18211d" stroke-width="2.5"/>
+  <circle cx="680" cy="152" r="9" fill="#2448d0"/>
+  <!-- three product cards -->
+  <g stroke="#18211d" stroke-width="2.5">
+    <path d="M96 214c58-2 118-2 176 0 2 64 2 130 0 194-58 2-118 2-176 0-2-64-2-130 0-194z" fill="#fdf0c4"/>
+    <path d="M312 214c58-2 118-2 176 0 2 64 2 130 0 194-58 2-118 2-176 0-2-64-2-130 0-194z" fill="#e8ecfb"/>
+    <path d="M528 214c58-2 118-2 176 0 2 64 2 130 0 194-58 2-118 2-176 0-2-64-2-130 0-194z" fill="#fbe2d9"/>
+  </g>
+  <!-- vase -->
+  <path d="M168 250c8 0 16 0 24 1-2 10-1 16 8 26 20 24 18 64-8 96-8 2-16 2-24 0-26-32-28-72-8-96 9-10 10-16 8-27z" fill="#fff" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M152 316c18 6 38 6 56 0" stroke="#d9734f" stroke-width="2.5"/>
+  <!-- mug -->
+  <path d="M362 270c26-2 52-2 76 0 2 32 0 62-6 90-22 3-42 3-64 0-6-28-8-58-6-90z" fill="#fff" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M440 288c22-4 26 30 2 34" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M384 252c-6-8 6-14 0-22M410 252c-6-8 6-14 0-22" stroke="#aab1bf" stroke-width="2.5"/>
+  <!-- basket -->
+  <path d="M570 310c40-2 80-2 92 0-4 24-10 46-18 62-18 2-38 2-56 0-8-16-14-38-18-62z" fill="#f2c94c" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M582 310c4-40 64-40 68 0" stroke="#18211d" stroke-width="2.5"/>
+  <path d="M584 334c22 2 44 2 64 0M590 354c18 2 36 2 52 0" stroke="#18211d" stroke-width="2"/>
+  <!-- labels -->
+  <path d="M96 436c40 0 80 0 120 1M312 436c40 0 80 0 110 1M528 436c40 0 80 0 126 1" stroke="#18211d" stroke-width="7"/>
+  <path d="M96 462c24 0 40 0 52 1M312 462c24 0 40 0 52 1M528 462c24 0 40 0 52 1" stroke="#2f7d57" stroke-width="7"/>
+  <path d="M206 452c22-2 44-2 64 0 2 7 2 15 0 22-20 2-42 2-64 0-2-7-2-15 0-22zM422 452c22-2 44-2 64 0 2 7 2 15 0 22-20 2-42 2-64 0-2-7-2-15 0-22zM638 452c22-2 44-2 64 0 2 7 2 15 0 22-20 2-42 2-64 0-2-7-2-15 0-22z" fill="#2448d0"/>
+</svg>

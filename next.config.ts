@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  // URLs end with a slash, matching the content plan (/projects/, /pricing/ ...)
+  trailingSlash: true,
   turbopack: {
     rules: {
       "*.css": {

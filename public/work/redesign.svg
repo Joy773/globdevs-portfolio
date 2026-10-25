@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="800" height="600" fill="#fbe2d9"/>
+  <!-- old site -->
+  <g transform="rotate(-4 200 300)">
+    <path d="M60 150c90-3 186-3 276 1 3 100 3 204-1 304-92 3-184 3-275-1-3-100-3-204 0-304z" fill="#eceae4" stroke="#18211d" stroke-width="3"/>
+    <path d="M80 176h236M80 196h200" stroke="#9a9a92" stroke-width="7"/>
+    <path d="M80 224c40 0 60 0 70 1 1 30 1 52 0 70-24 1-48 1-70 0-1-22-1-46 0-71zM166 224c40 0 120 0 150 1 1 30 1 52 0 70-50 1-100 1-150 0-1-22-1-46 0-71z" fill="#d5d3cb" stroke="#9a9a92" stroke-width="2"/>
+    <path d="M80 318h236M80 334h236M80 350h180M80 366h220M80 382h160M80 398h236M80 414h120" stroke="#b4b2aa" stroke-width="5"/>
+    <path d="M84 140c80 140 170 220 248 330M330 146c-90 120-170 210-246 322" stroke="#c2412d" stroke-width="4" opacity=".8"/>
+  </g>
+  <!-- arrow -->
+  <path d="M352 300c26-14 58-16 90-4" stroke="#18211d" stroke-width="3.5"/>
+  <path d="M428 280l16 16-20 10" stroke="#18211d" stroke-width="3.5"/>
+  <!-- new site -->
+  <g transform="rotate(2 600 300)">
+    <path d="M460 130c94-3 190-3 284 1 3 112 3 228-1 340-94 3-188 3-283-1-3-112-3-228 0-340z" fill="#fff" stroke="#18211d" stroke-width="3.5"/>
+    <path d="M486 162c26 0 46 0 60 1" stroke="#18211d" stroke-width="8"/>
+    <path d="M676 156c18-2 36-2 50 0 1 6 1 12 0 18-16 1-34 1-50 0-1-6-1-12 0-18z" fill="#2448d0"/>
+    <path d="M486 226c70-1 140-1 196 1M486 258c50-1 100-1 150 1" stroke="#18211d" stroke-width="14"/>
+    <path d="M486 296c66 0 132 0 200 1M486 316c50 0 100 0 150 1" stroke="#aab1bf" stroke-width="5"/>
+    <path d="M488 350c34-2 70-2 104 0 2 10 2 20 0 30-34 2-70 2-104 0-2-10-2-20 0-30z" fill="#2448d0" stroke="#18211d" stroke-width="2.5"/>
+    <path d="M488 410c36-1 72-1 108 0M616 410c36-1 72-1 108 0" stroke="#18211d" stroke-width="2"/>
+    <path d="M488 430c26 0 50 0 70 1M616 430c26 0 50 0 70 1" stroke="#aab1bf" stroke-width="5"/>
+  </g>
+  <!-- sparkle -->
+  <path d="M740 92v30M725 107h30" stroke="#18211d" stroke-width="3"/>
+  <path d="M700 520c4 10 8 14 18 18-10 4-14 8-18 18-4-10-8-14-18-18 10-4 14-8 18-18z" fill="#f2c94c" stroke="#18211d" stroke-width="2.5"/>
+</svg>

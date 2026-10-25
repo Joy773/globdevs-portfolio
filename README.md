@@ -1,37 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# globdevs-portfolio
 
-## Getting Started
+The GlobDevs website: 7 pages built from the content plan, with Next.js 16 (App Router), React 19 and Tailwind 4.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build (every page is prerendered)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  page.tsx                      Home            /
+  projects/page.tsx             Projects        /projects/
+  case-studies/page.tsx         Case study hub  /case-studies/
+  case-studies/[slug]/page.tsx  One case study  /case-studies/clinic-booking-website/
+  products/page.tsx             Products        /products/
+  pricing/page.tsx              Pricing         /pricing/
+  blog/page.tsx                 Blog            /blog/
+  blog/[slug]/page.tsx          Blog post       /blog/<slug>/
+  contact/page.tsx              Contact         /contact/
+  sitemap.ts, robots.ts         SEO files
+  fonts/                        Self-hosted fonts (Bricolage Grotesque, Instrument Sans)
+components/                     Header, Footer, hero globe, cards, FAQ, contact form, icons
+lib/
+  site.ts                       Contact details, promises, proof numbers, testimonials
+  content.ts                    Projects, case studies, packages and prices
+  posts.ts                      Blog posts
+public/work/                    Hand-drawn SVG project illustrations
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch: replace placeholders
 
-## Learn More
+All of them are in `lib/`, marked `TODO`.
 
-To learn more about Next.js, take a look at the following resources:
+| What | File |
+| --- | --- |
+| Domain, email, WhatsApp, calendar link, hours | `lib/site.ts` |
+| Real proof numbers (hidden until set) | `lib/site.ts` → `proof` |
+| Real testimonials (section hidden until added) | `lib/site.ts` → `testimonials` |
+| Package prices (show "Quoted per project" until set) | `lib/content.ts` → `from` |
+| Real client projects and case studies | `lib/content.ts` |
+| Author name and bio on blog posts | `lib/posts.ts` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The four projects and the case study are labelled **concept** on the site. Never add invented numbers, client names or reviews.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact form
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# globdevs-portfolio
+There is no backend yet. Submitting opens the visitor's email app (or WhatsApp, once a number is set) with the request filled in. To receive requests directly, connect `components/ContactForm.tsx` to a form service such as Formspree or Resend.
