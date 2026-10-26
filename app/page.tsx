@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import Ticks from "@/components/Ticks";
 import Faq from "@/components/Faq";
 import HeroGlobe from "@/components/HeroGlobe";
 import ProjectCard from "@/components/ProjectCard";
@@ -191,13 +192,15 @@ export default function Home() {
               every project.
             </p>
           </div>
-          <ul className="ticks">
-            <li>A clear written scope and price before we start. No hidden costs.</li>
-            <li>Weekly progress updates and a private preview link, so you always see progress.</li>
-            <li>You own your code, design files and content after final payment.</li>
-            <li>A single point of contact who replies within {site.promises.replyTime}.</li>
-            <li>Support after launch. We stay to help you grow.</li>
-          </ul>
+          <Ticks
+            items={[
+              "A clear written scope and price before we start. No hidden costs.",
+              "Weekly progress updates and a private preview link, so you always see progress.",
+              "You own your code, design files and content after final payment.",
+              <>A single point of contact who replies within {site.promises.replyTime}.</>,
+              "Support after launch. We stay to help you grow.",
+            ]}
+          />
         </div>
       </section>
 

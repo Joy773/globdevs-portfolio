@@ -5,6 +5,7 @@
  */
 const ink = "var(--ink)";
 const accent = "var(--accent)";
+const line = "var(--accent-deep)";
 
 function Note({
   x, y, r, text, d, fill = "var(--marker)",
@@ -41,7 +42,7 @@ export default function HeroGlobe() {
       <g className="float">
         {/* orbit, behind */}
         <path className="draw" pathLength={100} style={{ ["--d" as string]: ".9s" }}
-          d="M58 300c-30-46 70-118 200-150 128-32 222-14 214 34" stroke={accent} strokeWidth="2" strokeDasharray="4 7" />
+          d="M58 300c-30-46 70-118 200-150 128-32 222-14 214 34" stroke={line} strokeWidth="2" strokeDasharray="4 7" />
         {/* globe body */}
         <path d="M250 70c96-2 170 74 170 168 0 96-76 172-172 170-94-2-166-78-164-172 2-92 74-164 166-166z"
           fill="var(--surface)" />
@@ -64,7 +65,7 @@ export default function HeroGlobe() {
           d="M106 324c94 16 196 16 290-2" stroke={ink} strokeWidth="2.2" />
         {/* orbit, in front */}
         <path className="draw" pathLength={100} style={{ ["--d" as string]: "1s" }}
-          d="M472 184c-8 46-108 106-228 132-118 26-176 22-186-16" stroke={accent} strokeWidth="2.6" />
+          d="M472 184c-8 46-108 106-228 132-118 26-176 22-186-16" stroke={line} strokeWidth="2.6" />
         {/* code brackets travelling the orbit */}
         <g className="pop" style={{ ["--d" as string]: "1.5s" }}>
           <circle cx="430" cy="236" r="22" fill={accent} stroke={ink} strokeWidth="2" />
@@ -80,8 +81,8 @@ export default function HeroGlobe() {
       </g>
 
       <Note x={14} y={92} r={-6} text="Fast" d="1.7s" />
-      <Note x={300} y={38} r={4} text="SEO-ready" d="1.9s" fill="#cfe9da" />
-      <Note x={154} y={420} r={-2} text="Yours to own" d="2.1s" fill="#dfe5ff" />
+      <Note x={300} y={38} r={4} text="SEO-ready" d="1.9s" fill="#ffffff" />
+      <Note x={154} y={420} r={-2} text="Yours to own" d="2.1s" fill="#ffffff" />
     </svg>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import Ticks from "@/components/Ticks";
 import { site, whatsappLink } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -53,12 +54,14 @@ export default function ContactPage() {
 
             <section aria-labelledby="why-title">
               <h2 id="why-title">Why clients choose GlobDevs</h2>
-              <ul className="ticks">
-                <li>Fixed quotes with no hidden costs</li>
-                <li>Weekly updates and a private preview link</li>
-                <li>You own your code and content</li>
-                <li>Support after launch</li>
-              </ul>
+              <Ticks
+            items={[
+              "Fixed quotes with no hidden costs",
+              "Weekly updates and a private preview link",
+              "You own your code and content",
+              "Support after launch",
+            ]}
+          />
             </section>
           </aside>
         </div>

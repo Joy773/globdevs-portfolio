@@ -1,6 +1,8 @@
 # globdevs-portfolio
 
-The GlobDevs website: 7 pages built from the content plan, with Next.js 16 (App Router), React 19 and Tailwind 4.
+The GlobDevs website: 7 pages built from the content plan, with Next.js 16 (App Router), React 19, Tailwind 4 and react-icons (Phosphor set).
+
+Colors: soft dark yellow `#e8b931` and black for buttons; change them in `app/globals.css` (`--accent`).
 
 ## Run it
 
@@ -24,7 +26,7 @@ app/
   blog/[slug]/page.tsx          Blog post       /blog/<slug>/
   contact/page.tsx              Contact         /contact/
   sitemap.ts, robots.ts         SEO files
-  fonts/                        Self-hosted fonts (Bricolage Grotesque, Instrument Sans)
+  fonts/                        Self-hosted fonts: Jersey 25 (H1 only), Hanken Grotesk (everything else)
 components/                     Header, Footer, hero globe, cards, FAQ, contact form, icons
 lib/
   site.ts                       Contact details, promises, proof numbers, testimonials

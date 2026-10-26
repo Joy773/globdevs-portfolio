@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import Ticks from "@/components/Ticks";
 import { packages } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -32,9 +33,7 @@ export default function ProductsPage() {
                 {p.name}
               </h2>
               <p className="package__best">Best for: {p.bestFor}</p>
-              <ul className="ticks">
-                {p.includes.map((i) => <li key={i}>{i}</li>)}
-              </ul>
+              <Ticks items={p.includes} />
               <p className="package__outcome">{p.outcome}</p>
               <div className="package__meta">
                 <span>{p.monthly ? p.delivery : `Delivery: ${p.delivery}`}</span>

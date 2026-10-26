@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Cta from "@/components/Cta";
+import Ticks from "@/components/Ticks";
 import JsonLd from "@/components/JsonLd";
 import { Person } from "@/components/icons";
 import { formatDate, posts } from "@/lib/posts";
@@ -44,9 +45,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
 
             <aside className="takeaways" aria-labelledby="tk-title">
               <h2 id="tk-title">Key takeaways</h2>
-              <ul className="ticks">
-                {p.takeaways.map((t) => <li key={t}>{t}</li>)}
-              </ul>
+              <Ticks items={p.takeaways} />
             </aside>
 
             <p className="lede" style={{ color: "var(--ink)" }}>{p.intro}</p>

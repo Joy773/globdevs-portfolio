@@ -6,18 +6,19 @@ import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// Self-hosted variable fonts: no external requests, no layout shift.
+// Self-hosted Google Fonts: no external requests, no layout shift.
+// Jersey 25 is used for H1 only; Hanken Grotesk for H2 and all other text.
 const display = localFont({
-  src: "./fonts/BricolageGrotesque.woff2",
+  src: "./fonts/Jersey25.woff2",
   variable: "--font-display",
-  weight: "200 800",
+  weight: "400",
   display: "swap",
 });
 
 const body = localFont({
-  src: "./fonts/InstrumentSans.woff2",
+  src: "./fonts/HankenGrotesk.woff2",
   variable: "--font-body",
-  weight: "400 700",
+  weight: "100 900",
   display: "swap",
 });
 

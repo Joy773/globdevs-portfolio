@@ -1,5 +1,6 @@
 /** FAQ list with native <details>, plus FAQPage structured data. */
 import JsonLd from "./JsonLd";
+import { Plus } from "./icons";
 
 export type QA = { q: string; a: string };
 
@@ -11,6 +12,7 @@ export default function Faq({ items }: { items: QA[] }) {
           <details key={item.q} open={i === 0}>
             <summary>
               <h3>{item.q}</h3>
+              <Plus className="faq__icon" aria-hidden="true" />
             </summary>
             <p>{item.a}</p>
           </details>

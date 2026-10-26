@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import Ticks from "@/components/Ticks";
 import Faq from "@/components/Faq";
 import { formatFrom, packages } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -86,13 +87,15 @@ export default function PricingPage() {
               <Link href="/blog/how-much-does-a-website-cost/" className="link">how much does a website cost</Link>.
             </p>
           </div>
-          <ul className="ticks">
-            <li>Number of pages and design complexity</li>
-            <li>Features such as bookings, payments, user accounts and integrations</li>
-            <li>Content: whether you provide it or need writing and photography</li>
-            <li>Custom build or template-based platform</li>
-            <li>Timeline and ongoing support needs</li>
-          </ul>
+          <Ticks
+            items={[
+              "Number of pages and design complexity",
+              "Features such as bookings, payments, user accounts and integrations",
+              "Content: whether you provide it or need writing and photography",
+              "Custom build or template-based platform",
+              "Timeline and ongoing support needs",
+            ]}
+          />
         </div>
       </section>
 
@@ -101,13 +104,15 @@ export default function PricingPage() {
           <div className="section-head">
             <h2 id="promise-title">Our no-surprises promise</h2>
           </div>
-          <ul className="ticks">
-            <li>A fixed written quote before work starts</li>
-            <li>Payment in milestones, not everything upfront</li>
-            <li>Any extra work is approved by you before it is billed</li>
-            <li>Revision rounds included at the design stage</li>
-            <li>You own your code, design and content after final payment</li>
-          </ul>
+          <Ticks
+            items={[
+              "A fixed written quote before work starts",
+              "Payment in milestones, not everything upfront",
+              "Any extra work is approved by you before it is billed",
+              "Revision rounds included at the design stage",
+              "You own your code, design and content after final payment",
+            ]}
+          />
         </div>
       </section>
 
