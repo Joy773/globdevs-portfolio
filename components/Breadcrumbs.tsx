@@ -6,6 +6,25 @@ export default function Breadcrumbs({ items }: { items: { href: string; label: s
   const all = [{ href: "/", label: "Home" }, ...items];
   return (
     <nav className="crumbs" aria-label="Breadcrumb">
+      <style>{`
+        .crumbs ol {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4rem;
+          list-style: none;
+          padding: 0;
+          margin: 0 0 1.5rem;
+          font-size: 0.92rem;
+          color: var(--muted);
+        }
+        .crumbs li + li::before {
+          content: "/";
+          margin-right: 0.4rem;
+          opacity: 0.6;
+        }
+        .crumbs a { text-decoration: none; }
+        .crumbs a:hover { text-decoration: underline; }
+      `}</style>
       <ol>
         {all.map((c, i) => (
           <li key={c.href}>
