@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import { categories, formatDate, posts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
@@ -18,7 +19,7 @@ export default function BlogPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Web development tips and guides for business owners</h1>
+          <RevealTitle>Web development tips and guides for business owners</RevealTitle>
           <p className="lede">
             Plain-English advice on building, improving and growing your website, written by the
             GlobDevs team. No jargon, just practical web development tips you can use today.
@@ -53,7 +54,7 @@ export default function BlogPage() {
       {site.newsletterAction ? (
         <section className="section" aria-labelledby="news-title">
           <div className="wrap">
-            <h2 id="news-title">Keep learning with GlobDevs</h2>
+            <RevealHeading id="news-title">Keep learning with GlobDevs</RevealHeading>
             <p className="lede mt-4">Get one practical website tip a month. No spam.</p>
             <form className="newsletter" action={site.newsletterAction} method="post">
               <label htmlFor="nl-email" className="sr-only">Email address</label>
