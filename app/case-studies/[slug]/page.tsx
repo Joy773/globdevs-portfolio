@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Cta from "@/components/Cta";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import { caseStudies } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -32,7 +33,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
       <section className="page-top">
         <div className="wrap">
           <Breadcrumbs items={[{ href: "/case-studies/", label: "Case studies" }, { href: `/case-studies/${c.slug}/`, label: c.title.split(":")[0] }]} />
-          <h1>{c.title}</h1>
+          <RevealTitle>{c.title}</RevealTitle>
           {c.concept && (
             <p className="notice mt-8" style={{ maxWidth: "40rem" }}>
               This is a concept case study. It shows how we plan and build this kind of project.
@@ -59,13 +60,13 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
 
       <article className="section">
         <div className="wrap prose">
-          <h2>The challenge</h2>
+          <RevealHeading>The challenge</RevealHeading>
           <p>{c.challenge}</p>
 
-          <h2>The goals</h2>
+          <RevealHeading>The goals</RevealHeading>
           <ul>{c.goals.map((g) => <li key={g}>{g}</li>)}</ul>
 
-          <h2>Our solution</h2>
+          <RevealHeading>Our solution</RevealHeading>
           <h3>Strategy and design</h3>
           <p>{c.strategy}</p>
           <h3>Development</h3>
@@ -73,7 +74,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
           <h3>SEO and speed</h3>
           <p>{c.seo}</p>
 
-          <h2>{hasBefore ? "The results" : "What we measure"}</h2>
+          <RevealHeading>{hasBefore ? "The results" : "What we measure"}</RevealHeading>
           <div className="table-scroll">
             <table className="benefits">
               <thead>
@@ -97,7 +98,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
 
           {c.quote && (
             <>
-              <h2>What the client says</h2>
+              <RevealHeading>What the client says</RevealHeading>
               <figure className="quote">
                 <blockquote>“{c.quote.text}”</blockquote>
                 <figcaption>
