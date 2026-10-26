@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import { RevealTitle } from "@/components/ScrollReveal";
 import { caseStudies } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function CaseStudiesPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Web development case studies: real problems, real results</h1>
+          <RevealTitle>Web development case studies: real problems, real results</RevealTitle>
           <p className="lede">
             Screenshots show what a website looks like. A case study shows why it works. Here is
             how we take a business problem, build the right solution and measure the result.
@@ -25,6 +26,54 @@ export default function CaseStudiesPage() {
       </section>
 
       <section className="wrap" aria-labelledby="list-title">
+        <style>{`
+          .project {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+          }
+          .project__img {
+            position: relative;
+            border: 1.5px solid var(--ink);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--surface);
+            aspect-ratio: 4 / 3;
+            margin-bottom: 0.35rem;
+          }
+          .project__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .cards > :nth-child(odd) .project__img { transform: rotate(-0.6deg); }
+          .cards > :nth-child(even) .project__img { transform: rotate(0.5deg); }
+          .tag-concept {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            background: var(--ink);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+          .project h3 a { text-decoration: none; }
+          .project h3 a:hover {
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+          }
+          .project p { color: var(--muted); }
+          .project .project__result { color: var(--ink); font-weight: 500; }
+          .project__links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            margin-top: auto;
+            padding-top: 0.25rem;
+          }
+        `}</style>
         <h2 id="list-title" className="sr-only">All case studies</h2>
         <div className="cards">
           {caseStudies.map((c) => (
