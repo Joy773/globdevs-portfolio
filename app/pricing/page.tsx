@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import Ticks from "@/components/Ticks";
 import Faq from "@/components/Faq";
 import { formatFrom, packages } from "@/lib/content";
@@ -34,7 +35,7 @@ export default function PricingPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Website development pricing: clear packages, no hidden costs</h1>
+          <RevealTitle>Website development pricing: clear packages, no hidden costs</RevealTitle>
           <p className="lede">
             Every project is different, but you should never be surprised by the bill. Website
             development cost depends on a few clear factors. Below are our packages and what
@@ -81,7 +82,7 @@ export default function PricingPage() {
       <section className="section" aria-labelledby="cost-title">
         <div className="wrap split">
           <div className="section-head">
-            <h2 id="cost-title">What affects the cost of a website?</h2>
+            <RevealHeading id="cost-title">What affects the cost of a website?</RevealHeading>
             <p>
               The full breakdown is in our guide,{" "}
               <Link href="/blog/how-much-does-a-website-cost/" className="link">how much does a website cost</Link>.
@@ -102,7 +103,7 @@ export default function PricingPage() {
       <section className="section" aria-labelledby="promise-title">
         <div className="wrap split">
           <div className="section-head">
-            <h2 id="promise-title">Our no-surprises promise</h2>
+            <RevealHeading id="promise-title">Our no-surprises promise</RevealHeading>
           </div>
           <Ticks
             items={[
@@ -119,7 +120,7 @@ export default function PricingPage() {
       <section className="section" aria-labelledby="cheap-title">
         <div className="wrap split">
           <div className="section-head">
-            <h2 id="cheap-title">Is a cheaper website worth it?</h2>
+            <RevealHeading id="cheap-title">Is a cheaper website worth it?</RevealHeading>
           </div>
           <div className="prose">
             <p>
@@ -138,7 +139,7 @@ export default function PricingPage() {
       <section className="section" aria-labelledby="pfaq-title">
         <div className="wrap split">
           <div className="section-head">
-            <h2 id="pfaq-title">Pricing FAQ</h2>
+            <RevealHeading id="pfaq-title">Pricing FAQ</RevealHeading>
           </div>
           <Faq items={faqs} />
         </div>
