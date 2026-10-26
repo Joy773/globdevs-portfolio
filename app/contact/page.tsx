@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import Ticks from "@/components/Ticks";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -17,7 +18,7 @@ export default function ContactPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Contact GlobDevs: let’s talk about your project</h1>
+          <RevealTitle>Contact GlobDevs: let’s talk about your project</RevealTitle>
           <p className="lede">
             Get a website quote in a few minutes. Tell us about your idea and goals, and we will
             reply within {promises.replyTime} with next steps and a clear plan. No obligation and
@@ -32,7 +33,7 @@ export default function ContactPage() {
 
           <aside className="contact-aside">
             <section aria-labelledby="next-title">
-              <h2 id="next-title">What happens next</h2>
+              <RevealHeading id="next-title">What happens next</RevealHeading>
               <ol className="steps steps--stack">
                 <li><p>We read your message and reply within 24 hours.</p></li>
                 <li><p>We book a free {promises.callLength} call to understand your goals.</p></li>
@@ -42,7 +43,7 @@ export default function ContactPage() {
             </section>
 
             <section aria-labelledby="reach-title">
-              <h2 id="reach-title">Other ways to reach us</h2>
+              <RevealHeading id="reach-title">Other ways to reach us</RevealHeading>
               <ul className="reach">
                 <li><span>Email</span><a className="link" href={`mailto:${contact.email}`}>{contact.email}</a></li>
                 {wa && <li><span>WhatsApp</span><a className="link" href={wa} target="_blank" rel="noopener noreferrer">+{contact.whatsapp}</a></li>}
@@ -53,7 +54,7 @@ export default function ContactPage() {
             </section>
 
             <section aria-labelledby="why-title">
-              <h2 id="why-title">Why clients choose GlobDevs</h2>
+              <RevealHeading id="why-title">Why clients choose GlobDevs</RevealHeading>
               <Ticks
             items={[
               "Fixed quotes with no hidden costs",
