@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import Ticks from "@/components/Ticks";
 import { packages } from "@/lib/content";
 
@@ -16,7 +17,7 @@ export default function ProductsPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Ready-to-launch website solutions for growing businesses</h1>
+          <RevealTitle>Ready-to-launch website solutions for growing businesses</RevealTitle>
           <p className="lede">
             Not every business needs a fully custom build. Our website packages give you a
             professional, fast and SEO-ready solution with a clear scope, a fixed timeline and no
@@ -29,9 +30,9 @@ export default function ProductsPage() {
         <div className="packages">
           {packages.map((p) => (
             <section className="package" id={p.id} key={p.id} aria-labelledby={`${p.id}-title`}>
-              <h2 id={`${p.id}-title`} style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.75rem)" }}>
+              <RevealHeading id={`${p.id}-title`} style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.75rem)" }}>
                 {p.name}
-              </h2>
+              </RevealHeading>
               <p className="package__best">Best for: {p.bestFor}</p>
               <Ticks items={p.includes} />
               <p className="package__outcome">{p.outcome}</p>
