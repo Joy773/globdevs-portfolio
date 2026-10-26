@@ -16,6 +16,69 @@ export default function Footer() {
 
   return (
     <footer className="footer">
+      <style>{`
+        .footer {
+          margin-top: 0;
+          border-top: 1.5px solid var(--ink);
+          padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+          font-size: 0.97rem;
+        }
+        .footer__grid { display: grid; gap: 2.5rem; }
+        @media (min-width: 640px) {
+          .footer__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 960px) {
+          .footer__grid { grid-template-columns: 2fr 1fr 1fr 1.4fr; }
+        }
+        .footer h2 {
+          font-size: 1rem;
+          letter-spacing: 0;
+          margin-bottom: 0.9rem;
+        }
+        .footer ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          gap: 0.55rem;
+        }
+        .footer a { text-decoration: none; color: var(--muted); }
+        .footer a:hover { color: var(--ink); text-decoration: underline; }
+        .footer address {
+          font-style: normal;
+          color: var(--muted);
+          display: grid;
+          gap: 0.35rem;
+        }
+        .footer__bottom {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 0.75rem;
+          margin-top: 3rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid var(--line);
+          color: var(--muted);
+          font-size: 0.9rem;
+        }
+        .footer__about p {
+          color: var(--muted);
+          margin-top: 0.9rem;
+          max-width: 22rem;
+        }
+        .logo {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          text-decoration: none;
+          font-family: var(--font-body), sans-serif;
+          font-weight: 700;
+          font-size: 1.15rem;
+          letter-spacing: -0.03em;
+          flex-shrink: 0;
+        }
+        .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+      `}</style>
       <div className="wrap">
         <div className="footer__grid">
           <div className="footer__about">
