@@ -43,10 +43,8 @@ export const projects: Project[] = [
     industry: "Healthcare",
     tech: ["Next.js", "Node.js", "PostgreSQL"],
     concept: true,
-    problem:
-      "a way for patients to book without calling, and a site that shows up when people search for a dentist nearby",
-    solution:
-      "a fast clinic website with a 24/7 booking calendar, SMS reminders and a simple admin view for the front desk",
+    problem: "patients to book online instead of calling",
+    solution: "a fast site with 24/7 booking, SMS reminders and a simple admin view",
     result: "Designed to load in under 2 seconds on a mid-range phone",
     image: "/work/clinic.svg",
     imageAlt: "GlobDevs web app concept for a dental clinic, showing a booking calendar",
@@ -60,10 +58,8 @@ export const projects: Project[] = [
     industry: "Food and drink",
     tech: ["Next.js", "Stripe"],
     concept: true,
-    problem:
-      "fewer phone orders during rush hour and a menu that is easy to read on a phone",
-    solution:
-      "a one-page menu with categories, a short checkout for pickup orders and order alerts sent to the kitchen",
+    problem: "fewer phone orders and a menu that works on phones",
+    solution: "a one-page menu with pickup checkout and kitchen alerts",
     result: "Designed so a repeat order takes three taps",
     image: "/work/restaurant.svg",
     imageAlt: "GlobDevs business website concept for a restaurant, showing a phone menu",
@@ -76,10 +72,8 @@ export const projects: Project[] = [
     industry: "Retail",
     tech: ["Shopify", "Liquid"],
     concept: true,
-    problem:
-      "an online store they can run themselves, with product pages that can rank on Google",
-    solution:
-      "a lean Shopify theme with fast category pages, product schema for rich results and a checkout with local payment options",
+    problem: "an online store they can run themselves",
+    solution: "a lean Shopify shop with fast product pages and local payments",
     result: "Built around product pages that pass Core Web Vitals",
     image: "/work/store.svg",
     imageAlt: "GlobDevs e-commerce concept for a handmade goods store, showing product cards",
@@ -92,10 +86,8 @@ export const projects: Project[] = [
     industry: "Professional services",
     tech: ["WordPress", "Custom theme"],
     concept: true,
-    problem:
-      "a redesign of an old, slow template site without losing the Google rankings it already had",
-    solution:
-      "a lightweight custom theme, a redirect map for every old URL and service pages written around what clients search for",
+    problem: "a faster site without losing their Google rankings",
+    solution: "a lightweight theme, URL redirects and clearer service pages",
     result: "Planned with a full 301 redirect map so no ranking page is lost",
     image: "/work/redesign.svg",
     imageAlt: "GlobDevs redesign concept for a consultancy, comparing old and new layouts",
