@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
+import { RevealHeading } from "@/components/ScrollReveal";
 import { site, whatsappLink } from "@/lib/site";
 
 const needs = [
@@ -89,7 +90,87 @@ export default function ContactForm() {
 
   return (
     <form className="form" onSubmit={onSubmit} noValidate aria-labelledby="quote-title">
-      <h2 id="quote-title" style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)" }}>Get your free quote</h2>
+      <style>{`
+        .form {
+          display: grid;
+          gap: 1.35rem;
+          padding: clamp(1.25rem, 4vw, 2.5rem);
+          border: 1.5px solid var(--ink);
+          border-radius: var(--radius-lg);
+          background: var(--surface);
+        }
+        .form__row { display: grid; gap: 1.35rem; }
+        @media (min-width: 640px) {
+          .form__row { grid-template-columns: 1fr 1fr; }
+        }
+        .field { display: grid; gap: 0.45rem; min-width: 0; }
+        .field label,
+        .field legend {
+          font-weight: 600;
+          font-size: 0.97rem;
+          padding: 0;
+        }
+        .field legend { margin-bottom: 0.45rem; }
+        .field .hint { font-weight: 400; color: var(--muted); }
+        .field input,
+        .field select,
+        .field textarea {
+          width: 100%;
+          font: inherit;
+          font-size: 1rem;
+          color: var(--ink);
+          background: var(--paper);
+          border: 1.5px solid var(--line);
+          border-radius: var(--radius-sm);
+          padding: 0.75rem 0.9rem;
+        }
+        .field textarea { min-height: 8rem; resize: vertical; }
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+          outline: none;
+          border-color: var(--accent-deep);
+          box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+        }
+        .field [aria-invalid="true"] { border-color: var(--ink); }
+        .field__error { color: var(--ink); font-size: 0.9rem; }
+        fieldset.field { border: 0; padding: 0; margin: 0; }
+        .options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .options label { position: relative; font-weight: 500; }
+        .options input {
+          position: absolute;
+          opacity: 0;
+          inset: 0;
+          margin: 0;
+          cursor: pointer;
+        }
+        .options span {
+          display: inline-block;
+          padding: 0.5rem 0.95rem;
+          border: 1.5px solid var(--line);
+          border-radius: 999px;
+          font-size: 0.95rem;
+        }
+        .options input:checked + span {
+          background: var(--ink);
+          border-color: var(--ink);
+          color: var(--paper);
+        }
+        .options input:focus-visible + span {
+          outline: 3px solid var(--accent-deep);
+          outline-offset: 2px;
+        }
+        .form__note { color: var(--muted); font-size: 0.92rem; }
+        .form__status {
+          padding: 1rem 1.25rem;
+          border-radius: var(--radius-sm);
+          border-left: 4px solid var(--leaf);
+          background: var(--paper);
+        }
+      `}</style>
+      <RevealHeading id="quote-title" style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)" }}>
+        Get your free quote
+      </RevealHeading>
 
       <div className="form__row">
         <div className="field">
