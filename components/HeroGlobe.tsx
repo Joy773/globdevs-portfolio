@@ -20,7 +20,7 @@ function Note({
           stroke={ink}
           strokeWidth="2"
         />
-        <text x="15" y="26" fontSize="17" fontWeight="600" fill="#18211d" style={{ fontFamily: "var(--font-body)" }}>
+        <text x="15" y="26" fontSize="17" fontWeight="600" fill="var(--ink)" style={{ fontFamily: "var(--font-body)" }}>
           {text}
         </text>
       </g>
@@ -31,7 +31,7 @@ function Note({
 export default function HeroGlobe() {
   return (
     <svg
-      className="globe hero__art"
+      className="globe hero__art">
       viewBox="0 0 500 480"
       fill="none"
       strokeLinecap="round"
@@ -39,6 +39,45 @@ export default function HeroGlobe() {
       role="img"
       aria-label="A hand-drawn globe with notes reading fast, SEO-ready and yours to own"
     >
+      <style>{`
+        .globe .draw {
+          stroke-dasharray: var(--len, 1200);
+          stroke-dashoffset: var(--len, 1200);
+          animation: globe-draw 1.6s cubic-bezier(0.6, 0, 0.3, 1) forwards;
+          animation-delay: var(--d, 0s);
+        }
+        .globe .pop {
+          opacity: 0;
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: globe-pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) forwards;
+          animation-delay: var(--d, 1.2s);
+        }
+        .globe .float {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: globe-float 6s ease-in-out 2.2s infinite alternate;
+        }
+        @keyframes globe-draw { to { stroke-dashoffset: 0; } }
+        @keyframes globe-pop {
+          from { opacity: 0; transform: scale(0.4) rotate(-8deg); }
+          to { opacity: 1; transform: scale(1) rotate(0); }
+        }
+        @keyframes globe-float {
+          from { transform: translateY(-4px); }
+          to { transform: translateY(4px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .globe .draw,
+          .globe .pop,
+          .globe .float {
+            animation: none;
+            stroke-dashoffset: 0;
+            opacity: 1;
+            transform: none;
+          }
+        }
+      `}</style>
       <g className="float">
         {/* orbit, behind */}
         <path className="draw" pathLength={100} style={{ ["--d" as string]: ".9s" }}
@@ -81,8 +120,8 @@ export default function HeroGlobe() {
       </g>
 
       <Note x={14} y={92} r={-6} text="Fast" d="1.7s" />
-      <Note x={300} y={38} r={4} text="SEO-ready" d="1.9s" fill="#ffffff" />
-      <Note x={154} y={420} r={-2} text="Yours to own" d="2.1s" fill="#ffffff" />
+      <Note x={300} y={38} r={4} text="SEO-ready" d="1.9s" fill="var(--paper)" />
+      <Note x={154} y={420} r={-2} text="Yours to own" d="2.1s" fill="var(--paper)" />
     </svg>
   );
 }
