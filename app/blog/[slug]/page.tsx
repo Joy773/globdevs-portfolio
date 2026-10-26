@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Cta from "@/components/Cta";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
 import Ticks from "@/components/Ticks";
 import JsonLd from "@/components/JsonLd";
 import { Person } from "@/components/icons";
@@ -38,13 +39,13 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <div className="wrap">
           <Breadcrumbs items={[{ href: "/blog/", label: "Blog" }, { href: `/blog/${p.slug}/`, label: p.title }]} />
           <div className="prose">
-            <h1 style={{ maxWidth: "20ch" }}>{p.title}</h1>
+            <RevealTitle style={{ maxWidth: "20ch" }}>{p.title}</RevealTitle>
             <p className="post-meta">
               <time dateTime={p.date}>{formatDate(p.date)}</time>, {p.category}
             </p>
 
             <aside className="takeaways" aria-labelledby="tk-title">
-              <h2 id="tk-title">Key takeaways</h2>
+              <RevealHeading id="tk-title">Key takeaways</RevealHeading>
               <Ticks items={p.takeaways} />
             </aside>
 
@@ -52,7 +53,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
 
             {p.sections.map((s) => (
               <section key={s.heading}>
-                <h2>{s.heading}</h2>
+                <RevealHeading>{s.heading}</RevealHeading>
                 {s.blocks.map((b, i) =>
                   Array.isArray(b) ? (
                     <ul key={i} className="mt-4">{b.map((li) => <li key={li}>{li}</li>)}</ul>
@@ -63,7 +64,7 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
               </section>
             ))}
 
-            <h2>Keep reading</h2>
+            <RevealHeading>Keep reading</RevealHeading>
             <ul>
               <li><Link href={p.related.href} className="link">{p.related.label}</Link></li>
               {others.map((o) => (
