@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Cta from "@/components/Cta";
-import ProjectCard from "@/components/ProjectCard";
-import ProjectFilter from "@/components/ProjectFilter";
-import { projects, projectTypes } from "@/lib/content";
+import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
+import Projects from "@/components/Projects";
+import { projects } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: { absolute: "Web Development Projects & Portfolio | GlobDevs" },
@@ -18,7 +18,7 @@ export default function ProjectsPage() {
     <>
       <section className="page-top">
         <div className="wrap">
-          <h1>Our web development projects: built to look great and perform</h1>
+          <RevealTitle>Our web development projects: built to look great and perform</RevealTitle>
           <p className="lede">
             Every project below started with a business problem: a slow site, no online sales,
             manual work or low visibility on Google. See what we built, how it performs and the
@@ -35,16 +35,13 @@ export default function ProjectsPage() {
 
       <section className="wrap" aria-labelledby="featured-title">
         <h2 id="featured-title" className="sr-only">Featured projects</h2>
-        <ProjectFilter
-          types={projectTypes}
-          items={projects.map((p) => ({ key: p.slug, type: p.type, node: <ProjectCard project={p} /> }))}
-        />
+        <Projects />
       </section>
 
       <section className="section" aria-labelledby="tech-title">
         <div className="wrap split">
           <div className="section-head">
-            <h2 id="tech-title">Technology we use</h2>
+            <RevealHeading id="tech-title">Technology we use</RevealHeading>
           </div>
           <div className="prose">
             <p>
