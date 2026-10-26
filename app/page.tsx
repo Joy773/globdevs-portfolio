@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Cta from "@/components/Cta";
 import Ticks from "@/components/Ticks";
 import Faq from "@/components/Faq";
-import HeroGlobe from "@/components/HeroGlobe";
 import ProjectCard from "@/components/ProjectCard";
 import { Bag, Calendar, Check, Gauge, Shield, Window } from "@/components/icons";
 import { projects } from "@/lib/content";
@@ -103,7 +103,15 @@ export default function Home() {
               <Link href="/projects/" className="btn">See our projects</Link>
             </div>
           </div>
-          <HeroGlobe />
+          <Image
+            src="/hero.jpg"
+            alt="A hand-drawn sketch of a website layout inside a browser window"
+            width={576}
+            height={576}
+            className="hero__art hero__img"
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
       </section>
 

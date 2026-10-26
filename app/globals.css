@@ -493,6 +493,11 @@ svg {
   width: min(100%, 500px);
   justify-self: center;
 }
+.hero__img {
+  height: auto;
+  border-radius: var(--radius-lg);
+  transform: rotate(1.5deg);
+}
 @media (min-width: 900px) {
   .hero__inner {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
