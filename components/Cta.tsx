@@ -7,13 +7,15 @@ export default function Cta({
   title,
   children,
   actions,
+  mist = false,
 }: {
   title: string;
   children: ReactNode;
   actions: { href: string; label: string; primary?: boolean }[];
+  mist?: boolean;
 }) {
   return (
-    <section className="section" aria-labelledby="cta-title">
+    <section className={`section${mist ? " cta-section--mist" : ""}`} aria-labelledby="cta-title">
       <style>{`
         .section:has(.cta) {
           padding-top: var(--section);
@@ -22,6 +24,22 @@ export default function Cta({
         .section + .section:has(.cta) {
           padding-top: var(--section);
         }
+        .cta-section--mist {
+          width: 100vw;
+          max-width: 100vw;
+          margin-inline: calc(50% - 50vw);
+          box-sizing: border-box;
+          background: var(--mist);
+          color: var(--ink);
+        }
+        :root[data-theme="dark"] .cta-section--mist {
+          background: var(--surface);
+        }
+        @media (prefers-color-scheme: dark) {
+          :root:not([data-theme="light"]) .cta-section--mist {
+            background: var(--surface);
+          }
+        }
         .cta {
           position: relative;
           overflow: hidden;
@@ -29,6 +47,9 @@ export default function Cta({
           border: 1.5px solid var(--ink);
           border-radius: var(--radius-lg);
           background-color: var(--surface);
+        }
+        .cta-section--mist .cta {
+          background-color: var(--paper);
         }
         .cta h2 { max-width: 16ch; }
         .cta p {
