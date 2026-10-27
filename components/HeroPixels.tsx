@@ -18,13 +18,50 @@ function PixelCloud({ x, y, className }: { x: number; y: number; className: stri
   );
 }
 
-const toasts = [
+/** A small sheet of paper with two text lines, for indoor scenes. */
+function PixelPage({ x, y, className }: { x: number; y: number; className: string }) {
+  return (
+    <g className={className} transform={`translate(${x} ${y})`}>
+      <rect className="hero-pixels__page-sheet" x="0" y="0" width="4" height="5" />
+      <rect className="hero-pixels__page-line" x="1" y="1" width="2" height="1" />
+      <rect className="hero-pixels__page-line" x="1" y="3" width="2" height="1" />
+    </g>
+  );
+}
+
+/** A four-point pixel sparkle. */
+function PixelSparkle({ x, y, className }: { x: number; y: number; className: string }) {
+  return (
+    <g className={className} transform={`translate(${x} ${y})`}>
+      <rect x="1" y="0" width="1" height="1" />
+      <rect x="0" y="1" width="3" height="1" />
+      <rect x="1" y="2" width="1" height="1" />
+    </g>
+  );
+}
+
+const homeToasts = [
   "Testing & security",
   "Phase 5 · Launch",
   "Shipped · Your product is live",
 ];
 
-export default function HeroPixels() {
+type HeroPixelsProps = {
+  src?: string;
+  objectPosition?: string;
+  toasts?: string[];
+  cursor?: { x: number; y: number };
+  /** "sky" drifts clouds and birds; "indoor" floats pages and sparkles. */
+  scene?: "sky" | "indoor";
+};
+
+export default function HeroPixels({
+  src = "/hero-park.png?v=6",
+  objectPosition = "72% 62%",
+  toasts = homeToasts,
+  cursor = { x: 108, y: 58 },
+  scene = "sky",
+}: HeroPixelsProps) {
   return (
     <div className="hero-pixels" aria-hidden="true">
       <style>{`
@@ -50,7 +87,6 @@ export default function HeroPixels() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: 72% 62%;
           image-rendering: pixelated;
           image-rendering: crisp-edges;
         }
@@ -73,6 +109,17 @@ export default function HeroPixels() {
         .hero-pixels__bird--a { animation: pixel-fly 18s linear infinite; }
         .hero-pixels__bird--b { animation: pixel-fly 26s linear infinite; animation-delay: -10s; }
         .hero-pixels__cursor { fill: var(--accent); animation: pixel-cursor 1s steps(2, end) infinite; }
+        .hero-pixels__page-sheet { fill: var(--brand-paper); }
+        .hero-pixels__page-line { fill: color-mix(in srgb, var(--brand-ink) 30%, var(--brand-paper)); }
+        .hero-pixels__page { animation: pixel-float 14s ease-in-out infinite; }
+        .hero-pixels__page--b { animation-duration: 18s; animation-delay: -6s; }
+        .hero-pixels__page--c { animation-duration: 16s; animation-delay: -11s; }
+        .hero-pixels__page--d { animation-duration: 20s; animation-delay: -3s; }
+        .hero-pixels__sparkle { fill: var(--brand-gold); animation: pixel-twinkle 2.6s steps(2, end) infinite; }
+        .hero-pixels__sparkle--b { animation-delay: -0.9s; }
+        .hero-pixels__sparkle--c { animation-delay: -1.7s; }
+        .hero-pixels__sparkle--d { animation-delay: -0.4s; }
+        .hero-pixels__sparkle--e { animation-delay: -2.1s; }
         .hero-pixels__toasts {
           position: absolute;
           top: auto;
@@ -130,9 +177,22 @@ export default function HeroPixels() {
           from { transform: translate(-6px, 22px); }
           to { transform: translate(166px, 14px); }
         }
+        @keyframes pixel-float {
+          0%   { transform: translate(0, 0); }
+          25%  { transform: translate(3px, -5px); }
+          50%  { transform: translate(-2px, -9px); }
+          75%  { transform: translate(2px, -4px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes pixel-twinkle {
+          0%, 45% { opacity: 1; }
+          50%, 100% { opacity: 0.15; }
+        }
         @media (prefers-reduced-motion: reduce) {
           .hero-pixels__cloud,
           .hero-pixels__bird,
+          .hero-pixels__page,
+          .hero-pixels__sparkle,
           .hero-pixels__cursor,
           .hero-pixels__toast {
             animation: none;
@@ -144,26 +204,43 @@ export default function HeroPixels() {
       <div className="hero-pixels__pin">
       {/* Decorative plate — next/image is unnecessary for a full-bleed backdrop */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="hero-pixels__art" src="/hero-park.png?v=6" alt="" />
+      <img className="hero-pixels__art" src={src} alt="" style={{ objectPosition }} />
 
       <svg className="hero-pixels__fx" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid slice" shapeRendering="crispEdges">
-        <PixelCloud x={-12} y={8} className="hero-pixels__cloud hero-pixels__cloud--a" />
-        <PixelCloud x={28} y={14} className="hero-pixels__cloud hero-pixels__cloud--b" />
-        <PixelCloud x={96} y={6} className="hero-pixels__cloud hero-pixels__cloud--c" />
-        <PixelCloud x={70} y={18} className="hero-pixels__cloud hero-pixels__cloud--d" />
+        {scene === "sky" ? (
+          <>
+            <PixelCloud x={-12} y={8} className="hero-pixels__cloud hero-pixels__cloud--a" />
+            <PixelCloud x={28} y={14} className="hero-pixels__cloud hero-pixels__cloud--b" />
+            <PixelCloud x={96} y={6} className="hero-pixels__cloud hero-pixels__cloud--c" />
+            <PixelCloud x={70} y={18} className="hero-pixels__cloud hero-pixels__cloud--d" />
 
-        <g className="hero-pixels__bird hero-pixels__bird--a">
-          <rect x="0" y="0" width="1" height="1" />
-          <rect x="1" y="-1" width="1" height="1" />
-          <rect x="2" y="0" width="1" height="1" />
-        </g>
-        <g className="hero-pixels__bird hero-pixels__bird--b">
-          <rect x="0" y="0" width="1" height="1" />
-          <rect x="1" y="-1" width="1" height="1" />
-          <rect x="2" y="0" width="1" height="1" />
-        </g>
+            <g className="hero-pixels__bird hero-pixels__bird--a">
+              <rect x="0" y="0" width="1" height="1" />
+              <rect x="1" y="-1" width="1" height="1" />
+              <rect x="2" y="0" width="1" height="1" />
+            </g>
+            <g className="hero-pixels__bird hero-pixels__bird--b">
+              <rect x="0" y="0" width="1" height="1" />
+              <rect x="1" y="-1" width="1" height="1" />
+              <rect x="2" y="0" width="1" height="1" />
+            </g>
+          </>
+        ) : (
+          <>
+            <PixelPage x={34} y={22} className="hero-pixels__page hero-pixels__page--a" />
+            <PixelPage x={52} y={12} className="hero-pixels__page hero-pixels__page--b" />
+            <PixelPage x={104} y={16} className="hero-pixels__page hero-pixels__page--c" />
+            <PixelPage x={120} y={30} className="hero-pixels__page hero-pixels__page--d" />
 
-        <rect className="hero-pixels__cursor" x="108" y="58" width="1" height="2" />
+            <PixelSparkle x={42} y={10} className="hero-pixels__sparkle hero-pixels__sparkle--a" />
+            <PixelSparkle x={60} y={30} className="hero-pixels__sparkle hero-pixels__sparkle--b" />
+            <PixelSparkle x={98} y={8} className="hero-pixels__sparkle hero-pixels__sparkle--c" />
+            <PixelSparkle x={112} y={38} className="hero-pixels__sparkle hero-pixels__sparkle--d" />
+            <PixelSparkle x={130} y={14} className="hero-pixels__sparkle hero-pixels__sparkle--e" />
+          </>
+        )}
+
+        <rect className="hero-pixels__cursor" x={cursor.x} y={cursor.y} width="1" height="2" />
       </svg>
 
       <ul className="hero-pixels__toasts">
