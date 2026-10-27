@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Blogs from "@/components/Blogs";
 import Cta from "@/components/Cta";
+import HeroPixels from "@/components/HeroPixels";
 import { RevealHeading, RevealTitle } from "@/components/ScrollReveal";
-import { categories, formatDate, posts } from "@/lib/posts";
+import TrustStrip from "@/components/TrustStrip";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,43 +14,35 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
-  const used = new Set(posts.map((p) => p.category));
   return (
     <>
-      <section className="page-top">
-        <div className="wrap">
-          <RevealTitle>Web development tips and guides for business owners</RevealTitle>
-          <p className="lede">
-            Plain-English advice on building, improving and growing your website, written by the
-            GlobDevs team. No jargon, just practical web development tips you can use today.
-          </p>
+      <section className="hero">
+        <HeroPixels
+          src="/hero-blog.png?v=2"
+          objectPosition="50% 60%"
+          scene="indoor"
+          toasts={["Guide · Website cost", "Fixes · Slow pages", "Checklist · SEO basics"]}
+          cursor={{ x: 80, y: 50 }}
+        />
+        <div className="wrap hero__inner">
+          <div className="hero__copy">
+            <RevealTitle style={{ fontSize: "clamp(3.1rem, 8vw, 6.4rem)", maxWidth: "none" }}>
+              {"Web development tips and\nguides for business owners"}
+            </RevealTitle>
+            <p className="lede">
+              Plain-English advice on building, improving and growing your website, written by the
+              GlobDevs team. No jargon, just practical web development tips you can use today.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="wrap" aria-labelledby="posts-title">
-        <h2 id="posts-title" className="sr-only">Latest articles</h2>
-        <ul className="chips" aria-label="Topics we write about">
-          {categories.filter((c) => used.has(c)).map((c) => <li key={c}>{c}</li>)}
-        </ul>
-        <ul className="post-list">
-          {sorted.map((p) => (
-            <li key={p.slug}>
-              <Link href={`/blog/${p.slug}/`}>
-                <span className="post-meta">
-                  <time dateTime={p.date}>{formatDate(p.date)}</time>
-                  <br />
-                  {p.category}
-                </span>
-                <span>
-                  <h3>{p.title}</h3>
-                  <p>{p.description}</p>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section aria-labelledby="trust-title">
+        <h2 id="trust-title" className="sr-only">Trusted by businesses that want results</h2>
+        <TrustStrip />
       </section>
+
+      <Blogs />
 
       {site.newsletterAction ? (
         <section className="section" aria-labelledby="news-title">
@@ -66,6 +59,7 @@ export default function BlogPage() {
       ) : null}
 
       <Cta
+        mist
         title="Rather have us look at your site?"
         actions={[
           { href: "/contact/?need=improve", label: "Get a free quote", primary: true },
